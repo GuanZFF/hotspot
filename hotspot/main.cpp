@@ -22,6 +22,8 @@ test generate_test() {
 
 int main(int argc, const char * argv[]) {
     
+    cout << "这是测试代码" << endl;
+    
     EpollServer *server = new EpollServer();
     server->run();
     
