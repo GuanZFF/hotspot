@@ -37,5 +37,7 @@ int main(int argc, const char * argv[]) {
     
     cout << t(12, 23) << endl;
     
+    cout << "test1" << endl;
+    
     return 0;
 }
