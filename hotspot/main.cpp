@@ -39,5 +39,7 @@ int main(int argc, const char * argv[]) {
     
     cout << "test1" << endl;
     
+    cout << "test2" << endl;
+    
     return 0;
 }
