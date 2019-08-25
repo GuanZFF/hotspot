@@ -81,3 +81,10 @@ void SelectSocketServer::run() {
     // 关闭连接信息
     close(fd);
 }
+
+
+void SelectSocketServer::run1()
+{
+    int fd = socket(AF_INET, SOCK_STREAM, 0);
+    
+}

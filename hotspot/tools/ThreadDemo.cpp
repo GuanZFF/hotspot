@@ -112,7 +112,7 @@ void ThreadDemo::lock_test()
     
     pthread_t t1;
     
-    int p1 = pthread_create(&t1, NULL, lock_mutex, &lock);
+    int p1 = pthread_create(&t1, NULL, (void *(*)(void *))lock_mutex, &lock);
     if (p1 == 0) {
         cout << "线程1创建成功" << endl;
     }

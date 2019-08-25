@@ -97,3 +97,7 @@ void JvmDemo::enum_test()
     cout << two << endl;
 }
 
+void JvmDemo::test()
+{
+    cout << "test method" << endl;
+}

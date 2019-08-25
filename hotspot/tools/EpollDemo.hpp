@@ -13,8 +13,7 @@
 
 class EpollServer {
 public:
-    void run();
-    int add(int a, int b);
+    static void run();
 };
 
 #endif /* EpollDemo_hpp */

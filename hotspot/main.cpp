@@ -7,13 +7,16 @@
 //
 #include <iostream>
 #include "jvm/JvmDemo.hpp"
+#include "tools/SelectDemo.hpp"
+#include "tools/SocketDemo.hpp"
+#include "tools/PollDemo.hpp"
+#include "tools/EpollDemo.hpp"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
     
-    JvmDemo *jvm = new JvmDemo();
-    jvm->run();
+    EpollServer::run();
     
     return 0;
 }

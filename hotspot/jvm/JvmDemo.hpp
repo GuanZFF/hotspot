@@ -22,6 +22,7 @@ public:
     
     static void enum_test();
     
+    void test();
     
 //    static int _call_stub_entry;
 };
