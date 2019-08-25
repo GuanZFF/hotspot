@@ -20,7 +20,7 @@ void socket_server() {
     my_addr.sin_family = AF_INET;
     my_addr.sin_port = htons(8888);
     my_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-    bind(fd, (struct sockaddr *)&my_addr, sizeof(struct sockaddr));
+    bind(fd, (struct sockaddr *)&my_addr, sizeof(struct sockaddr_in));
     
     listen(fd, 128);
     printf("listen client port = %d... \n", 8888);
