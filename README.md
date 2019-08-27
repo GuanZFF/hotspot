@@ -25,3 +25,8 @@ int kevent(int kq, const struct kevent *changelist, int nchanges, struct kevent 
 int kqueue(void);
 
 EV_SET(&kev, ident, filter, flags, fflags, data, udata);
+
+### pthread Linux中的多线程
+
+int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg);
+
