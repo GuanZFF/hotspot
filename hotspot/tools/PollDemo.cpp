@@ -67,7 +67,15 @@ void Poll::run()
     close(fd);
 }
 
-
+//
+// pollfd
+//      fd:文件描述符
+//      events:要监控的事件
+//      revents:触发的事件
+// poll
+//      pollfd:结构体数据
+//      pollfd_count:监控文件描述符的数量
+//      timeout:超时时间
 void Poll::run_poll()
 {
     int fd = socket(AF_INET, SOCK_STREAM, 0);
