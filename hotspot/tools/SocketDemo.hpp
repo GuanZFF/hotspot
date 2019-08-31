@@ -20,7 +20,7 @@ public:
 // socket客户端
 class SocketClient {
 public:
-    void run();
+    static void run();
 };
 
 #endif /* SocketDemo_hpp */

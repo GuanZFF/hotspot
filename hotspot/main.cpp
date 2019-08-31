@@ -11,12 +11,14 @@
 #include "tools/SocketDemo.hpp"
 #include "tools/PollDemo.hpp"
 #include "tools/EpollDemo.hpp"
+#include "memory/BaseMemoryAllocate.hpp"
+#include "file/FileHandler.hpp"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
     
-    EpollServer::run();
+    FileHandler::run();
     
     return 0;
 }

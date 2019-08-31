@@ -54,5 +54,29 @@ void SocketServer::run() {
 }
 
 void SocketClient::run() {
-    printf("socket client run\n");
+    int fd = socket(AF_INET, SOCK_STREAM, 0);
+    
+    struct sockaddr_in client_addr;
+    client_addr.sin_family = AF_INET;
+    client_addr.sin_port = htons(8888);
+    client_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    
+    int con = connect(fd, (const struct sockaddr *) &client_addr, sizeof(struct sockaddr_in));
+    if (con != 0) {
+        printf("socket connect fail\n");
+    }
+    
+    printf("socket client success\n");
+    
+    char message[512];
+    long k = 1;
+    while (k > 0) {
+        scanf("%s", message);
+        
+        k = write(fd, message, sizeof(message));
+    }
+    
+    printf("socket close\n");
+    
+    close(fd);
 }
