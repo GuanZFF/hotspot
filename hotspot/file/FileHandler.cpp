@@ -11,9 +11,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+// fopen mode配置模式
+//      r 读模式
+//      w 写模式
+//      a 追加写
+//      + 同时支持读写
 void FileHandler::run()
 {
-    FILE *f = fopen("/Users/Grow-Worm/Downloads/project/test.txt", "wa+");
+    FILE *f = fopen("/Users/Grow-Worm/Downloads/project/test.txt", "a");
     
     char *ptr = (char *) malloc(10 * sizeof(char));
     

@@ -18,7 +18,8 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     
-    FileHandler::run();
+    SocketClient::redis_client();
+
     
     return 0;
 }

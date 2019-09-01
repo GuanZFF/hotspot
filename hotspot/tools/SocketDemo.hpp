@@ -21,6 +21,7 @@ public:
 class SocketClient {
 public:
     static void run();
+    static void redis_client();
 };
 
 #endif /* SocketDemo_hpp */
