@@ -117,6 +117,5 @@ void SocketClient::redis_client()
         }
     }
     
-    
     close(fd);
 }
