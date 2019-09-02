@@ -20,7 +20,8 @@ public:
 // socket客户端
 class SocketClient {
 public:
-    void run();
+    static void run();
+    static void redis_client();
 };
 
 #endif /* SocketDemo_hpp */

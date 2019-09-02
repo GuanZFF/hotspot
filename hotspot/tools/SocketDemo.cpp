@@ -12,6 +12,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <string.h>
 
 void socket_server() {
     int fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -54,5 +55,67 @@ void SocketServer::run() {
 }
 
 void SocketClient::run() {
-    printf("socket client run\n");
+    int fd = socket(AF_INET, SOCK_STREAM, 0);
+    
+    struct sockaddr_in client_addr;
+    client_addr.sin_family = AF_INET;
+    client_addr.sin_port = htons(8888);
+    client_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    
+    int con = connect(fd, (const struct sockaddr *) &client_addr, sizeof(struct sockaddr_in));
+    if (con != 0) {
+        printf("socket connect fail\n");
+    }
+    
+    printf("socket client success\n");
+    
+    char message[512];
+    long k = 1;
+    while (k > 0) {
+        scanf("%s", message);
+        
+        k = write(fd, message, sizeof(message));
+    }
+    
+    printf("socket close\n");
+    
+    close(fd);
+}
+
+
+void SocketClient::redis_client()
+{
+    int fd = socket(AF_INET, SOCK_STREAM, 0);
+    
+    struct sockaddr_in client_addr;
+    
+    client_addr.sin_family = AF_INET;
+    client_addr.sin_port = htons(6379);
+    client_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    
+    int cnt = connect(fd, (const struct sockaddr *) &client_addr, sizeof(client_addr));
+    if (cnt != 0) {
+        printf("connect fail\n");
+        close(fd);
+        return;
+    }
+    
+    printf("connect success\n");
+    
+    char message[512] = "";
+    char read_message[512] = "";
+    long k = 1;
+    long r_len = 0;
+    while (k > 0) {
+        scanf("%s", message);
+        
+        k = write(fd, message, strlen(message));
+        
+        r_len = read(fd, read_message, sizeof(read_message));
+        if (r_len > 0) {
+            printf("%s", read_message);
+        }
+    }
+    
+    close(fd);
 }
