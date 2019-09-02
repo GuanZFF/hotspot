@@ -30,3 +30,15 @@ EV_SET(&kev, ident, filter, flags, fflags, data, udata);
 
 int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg);
 
+### FILE文件操作
+
+FILE *fopen(const char * restrict path, const char * restrict mode); // 打开文件返回一个文件句柄
+1. path 文件路径
+2. mode操作模式
+    1. 'r' 读文件
+    2. ‘w' 写文件
+    3. ’a' 追加写文件
+    4. ‘+’ following 'r', 'w', or 'a' opens the file for both reading and writing
+    
+size_t fread(void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);
+size_t fwrite(const void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);
