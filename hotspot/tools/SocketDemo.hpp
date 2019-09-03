@@ -22,6 +22,9 @@ class SocketClient {
 public:
     static void run();
     static void redis_client();
+    
+    static void run_mmap();
+    static void run_sendfile();
 };
 
 #endif /* SocketDemo_hpp */
