@@ -42,3 +42,8 @@ FILE *fopen(const char * restrict path, const char * restrict mode); // 打开�
     
 size_t fread(void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);
 size_t fwrite(const void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);
+
+
+### mmap实现减少read中的copy次数
+
+void * mmap(void *addr, size_t len, int prot, int flags, int fd, off_t offset);
