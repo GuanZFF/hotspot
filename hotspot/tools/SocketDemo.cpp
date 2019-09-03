@@ -13,6 +13,12 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/mman.h>
+#include <sys/uio.h>
+
+// open函数运行
+#include <sys/stat.h>
+#include <fcntl.h>
 
 void socket_server() {
     int fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -118,4 +124,20 @@ void SocketClient::redis_client()
     }
     
     close(fd);
+}
+
+void SocketClient::run_mmap()
+{
+    
+}
+
+void SocketClient::run_sendfile()
+{
+    int fd = open("/Users/Grow-Worm/Downloads/project/test.txt", O_RDWR);
+    
+    int socket_fd = socket(AF_INET, SOCK_STREAM, 0);
+    
+    long long len = 10;
+    
+    int sf = sendfile(fd, socket_fd, 0, &len, NULL, 0);
 }

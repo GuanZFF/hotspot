@@ -14,6 +14,12 @@
 class FileHandler {
 public:
     static void run();
+    // 原始函数操作
+    static void run_read();
+    
+    static void run_mmap();
+    
+    static void run_sendfile();
 };
 
 

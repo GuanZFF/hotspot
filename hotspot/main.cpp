@@ -18,8 +18,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     
-    SocketClient::redis_client();
-
+    FileHandler::run_mmap();
     
     cout << "test2" << endl;
     
