@@ -15,7 +15,7 @@ class SelectSocketServer {
 public:
     void run();
     
-    void run1();
+    static void run1();
 };
 
 #endif /* SelectDemo_hpp */

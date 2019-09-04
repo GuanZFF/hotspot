@@ -15,6 +15,16 @@
 #include <sys/types.h>
 #include <sys/uio.h>
 
+#include <string.h>
+#include <stdlib.h>
+
+// open函数
+#include <sys/stat.h>
+#include <fcntl.h>
+
+#include <errno.h>
+
+
 struct client {
     int fd = 0;
     int port = 0;
@@ -85,6 +95,41 @@ void SelectSocketServer::run() {
 
 void SelectSocketServer::run1()
 {
-    int fd = socket(AF_INET, SOCK_STREAM, 0);
+    int fd = open("/Users/Grow-Worm/Downloads/project/test.txt", O_RDONLY);
+    if (fd <= 0) {
+        printf("open file fail\n");
+        printf("fail reason is %s\n", strerror(errno));
+        return;
+    }
     
+    
+    fd_set read_fd;
+    FD_ZERO(&read_fd);
+    FD_SET(fd, &read_fd);
+    
+    char *read_result = (char *) malloc(sizeof(char) * 20);
+    
+    memset(read_result, 0, sizeof(char) * 20);
+    
+    while (1) {
+        int select_fd = select(fd + 1, &read_fd, NULL, NULL, NULL);
+        if (select_fd < 0) {
+            printf("select fail\n");
+            close(fd);
+            return;
+        }
+        
+        if (!FD_ISSET(fd, &read_fd)) {
+            printf("fd is not null\n");
+            continue;
+        }
+        
+        long rd = read(fd, read_result, sizeof(char) * 20);
+        if (rd <= 0) {
+            printf("read fail\n");
+        }
+        
+        printf("result = %s", read_result);
+        
+    }
 }
