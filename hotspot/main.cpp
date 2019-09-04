@@ -18,7 +18,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     
-    FileHandler::run_mmap();
+    SelectSocketServer::run1();
     
     cout << "test2" << endl;
     
