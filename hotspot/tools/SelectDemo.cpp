@@ -103,15 +103,15 @@ void SelectSocketServer::run1()
     }
     
     
-    fd_set read_fd;
-    FD_ZERO(&read_fd);
-    FD_SET(fd, &read_fd);
+    fd_set read_fd, total_fd;
+    FD_SET(fd, &total_fd);
     
     char *read_result = (char *) malloc(sizeof(char) * 20);
     
     memset(read_result, 0, sizeof(char) * 20);
     
     while (1) {
+        FD_ZERO(&read_fd);
         int select_fd = select(fd + 1, &read_fd, NULL, NULL, NULL);
         if (select_fd < 0) {
             printf("select fail\n");

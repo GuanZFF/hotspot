@@ -13,6 +13,8 @@
 #include "tools/EpollDemo.hpp"
 #include "memory/BaseMemoryAllocate.hpp"
 #include "file/FileHandler.hpp"
+#include "kernel/SyntaxDemo.hpp"
+#include "jvm/JvmDemo.hpp"
 
 using namespace std;
 

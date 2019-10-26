@@ -15,7 +15,7 @@ using namespace std;
 
 class JvmDemo {
 public:
-    void run();
+    static void run();
     static void run_test(string context);
     
     static void jvm_print(const char *context);
